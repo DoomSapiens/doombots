@@ -20,7 +20,7 @@ class BaseAgent(Env):
 
     def step(self, action):
         actions = get_action_space(self.game)
-        reward = self.game.make_action(actions[action], 4)
+        reward = self.game.make_action(actions[action], 1)
 
         if self.game.get_state():
             state = self.game.get_state().screen_buffer

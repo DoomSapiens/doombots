@@ -22,8 +22,6 @@
     "TURN_LEFT",
     "TURN_RIGHT",
     "MOVE_FORWARD",
-    "MOVE_LEFT",
-    "MOVE_RIGHT",
   ],
   available_game_variables: [
     "AMMO0",

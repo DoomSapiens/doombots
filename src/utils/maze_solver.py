@@ -114,7 +114,7 @@ def visualize(grid, history, start, goal, interval=200):
     return ani
 
 
-def load_maze(file_path="../scenarios/my_way_home_maze.json5") -> np.ndarray:
+def load_maze(file_path="../../scenarios/_maze_home_sweet_home.json5") -> np.ndarray:
     """
     Reads a JSON5 file containing an array and returns it as a NumPy array.
 

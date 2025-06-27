@@ -2,12 +2,12 @@
   doom_scenario_path: "health_gathering.wad",
   mode: "PLAYER",
 
-  living_reward: 1,
+  living_reward: 0.1,
   death_penalty: 100,
 
   screen_resolution: "RES_320X240",
   screen_format: "CRCGCB",
-  render_hud: false,
+  render_hud: true,
   render_crosshair: false,
   render_weapon: false,
   render_decals: false,

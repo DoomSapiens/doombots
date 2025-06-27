@@ -195,3 +195,6 @@ cython_debug/
 
 .idea
 *.ini
+*.bak
+models
+logs

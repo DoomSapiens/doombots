@@ -58,12 +58,15 @@ def setup_game(scenario, render):
         game.set_death_penalty(config['death_penalty'])
 
     # --- Rendering Options ---
-    if 'screen_resolution' in config:
-        if res := get_vzd_enum('ScreenResolution', config['screen_resolution']):
-            game.set_screen_resolution(res)
-    if 'screen_format' in config:
-        if fmt := get_vzd_enum('ScreenFormat', config['screen_format']):
-            game.set_screen_format(fmt)
+    # game.set_screen_resolution(vzd.ScreenResolution.RES_1280X960)
+    game.set_screen_resolution(vzd.ScreenResolution.RES_160X120)
+    game.set_screen_format(vzd.ScreenFormat.GRAY8)
+    # if 'screen_resolution' in config:
+    #     if res := get_vzd_enum('ScreenResolution', config['screen_resolution']):
+    #         game.set_screen_resolution(res)
+    # if 'screen_format' in config:
+    #     if fmt := get_vzd_enum('ScreenFormat', config['screen_format']):
+    #         game.set_screen_format(fmt)
 
     if 'render_hud' in config:
         game.set_render_hud(config['render_hud'])
@@ -75,8 +78,6 @@ def setup_game(scenario, render):
         game.set_render_decals(config['render_decals'])
     if 'render_particles' in config:
         game.set_render_particles(config['render_particles'])
-    if 'window_visible' in config:
-        game.set_window_visible(config['window_visible'])
 
     # --- Episode Control ---
     if 'episode_start_time' in config:
@@ -111,8 +112,17 @@ def grayscale(observation):
     :param observation: The observation from the game, expected to be in RGB format.
     :return: A grayscale image of shape (100, 160, 1).
     """
-    gray = cv2.cvtColor(np.moveaxis(observation, 0, -1), cv2.COLOR_BGR2GRAY)
-    resize = cv2.resize(gray, (160, 100), interpolation=cv2.INTER_CUBIC)
+    # 1) Input is RGB (320x240), convert to grayscale and resize
+    # gray = cv2.cvtColor(np.moveaxis(observation, 0, -1), cv2.COLOR_BGR2GRAY)
+    # resize = cv2.resize(gray, (160, 120), interpolation=cv2.INTER_CUBIC)
+    # state = np.reshape(resize, (120, 160, 1))
+    # return state
+
+    # 2) Input is already grayscale (160x120), resize to (120, 160, 1)
+    # return np.resize(observation, (120, 160, 1))
+
+    # 3) Input is already grayscale (160x120), resize to (100, 160, 1)
+    resize = cv2.resize(observation, (160, 100), interpolation=cv2.INTER_CUBIC)
     state = np.reshape(resize, (100, 160, 1))
     return state
 

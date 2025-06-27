@@ -1,28 +1,29 @@
 {
-  doom_scenario_path: "deadly_corridor.wad",
+
+  doom_scenario_path: "home_sweet_home.wad",
   doom_skill: 5,
   mode: "PLAYER",
 
-  death_penalty: 500,
+  living_reward: -0.0005,
 
   screen_resolution: "RES_320X240",
   screen_format: "CRCGCB",
-  render_hud: true,
+  render_hud: false,
   render_crosshair: false,
   render_weapon: true,
   render_decals: false,
   render_particles: false,
   window_visible: true,
 
+  episode_start_time: 10,
   episode_timeout: 2100,
 
   available_buttons: [
-    "ATTACK",
     "TURN_LEFT",
     "TURN_RIGHT",
     "MOVE_FORWARD",
   ],
-	available_game_variables: [
-    "HEALTH",
+  available_game_variables: [
+    "AMMO0",
   ],
 }
