@@ -1,0 +1,31 @@
+{
+
+  doom_scenario_path: "my_way_home.wad",
+  doom_skill: 5,
+  mode: "PLAYER",
+
+  living_reward: -0.0001,
+
+  screen_resolution: "RES_320X240",
+  screen_format: "CRCGCB",
+  render_hud: false,
+  render_crosshair: false,
+  render_weapon: true,
+  render_decals: false,
+  render_particles: false,
+  window_visible: true,
+
+  episode_start_time: 10,
+  episode_timeout: 2100,
+
+  available_buttons: [
+    "TURN_LEFT",
+    "TURN_RIGHT",
+    "MOVE_FORWARD",
+    "MOVE_LEFT",
+    "MOVE_RIGHT",
+  ],
+  available_game_variables: [
+    "AMMO0",
+  ],
+}

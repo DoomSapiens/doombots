@@ -1,11 +1,9 @@
-import os
-
 import numpy as np
 from gym import Env
 from gym.spaces import Discrete, Box
 import vizdoom as vzd
 
-from utils.game_utils import grayscale, get_action_space
+from utils.game_utils import grayscale, get_action_space, get_state_info
 
 
 class BaseAgent(Env):
@@ -30,8 +28,7 @@ class BaseAgent(Env):
         else:
             state = np.zeros(self.observation_space.shape)
 
-        info = self.game.get_available_game_variables()
-        info = { f"{info[i].name}": info[i].value for i in range(len(info)) }
+        info = get_state_info(self.game)
         done = self.game.is_episode_finished()
 
         return state, reward, done, info

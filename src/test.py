@@ -5,7 +5,7 @@ import time
 from stable_baselines3 import PPO
 
 from agents.base_agent import BaseAgent
-from utils.game_utils import setup_vizdoom
+from utils.game_utils import setup_game
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 
     is_rendered = not args.no_render
 
-    game = setup_vizdoom(scenario=args.scenario, render=is_rendered)
+    game = setup_game(scenario=args.scenario, render=is_rendered)
     env = BaseAgent(game)
 
     print(f"--- Loading model from: {args.load_model} ---")

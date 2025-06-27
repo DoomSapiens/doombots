@@ -5,7 +5,7 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import BaseCallback
 
 from agents.base_agent import BaseAgent
-from utils.game_utils import setup_vizdoom
+from utils.game_utils import setup_game
 
 
 class TrainAndLoggingCallback(BaseCallback):
@@ -40,7 +40,7 @@ def main():
     model_path = f'../models/{args.load_model if args.load_model else args.scenario}'
     log_path = f'../logs/{args.load_model if args.load_model else args.scenario}'
 
-    game = setup_vizdoom(scenario=args.scenario, render=True)
+    game = setup_game(scenario=args.scenario, render=False)
     env = BaseAgent(game)
     callback = TrainAndLoggingCallback(save_interval=args.save_interval, save_path=model_path, load_steps=args.load_steps)
 

@@ -1,0 +1,28 @@
+{
+  doom_scenario_path: "defend_the_center.wad",
+  doom_skill: 3,
+  death_penalty: 1,
+  mode: "PLAYER",
+
+  screen_resolution: "RES_320X240",
+  screen_format: "CRCGCB",
+  render_hud: true,
+  render_crosshair: false,
+  render_weapon: true,
+  render_decals: false,
+  render_particles: false,
+  window_visible: true,
+
+  episode_start_time: 10,
+  episode_timeout: 2100,
+
+  available_buttons: [
+    "TURN_LEFT",
+    "TURN_RIGHT",
+    "ATTACK",
+  ],
+  available_game_variables: [
+    "AMMO2",
+    "HEALTH",
+  ],
+}
